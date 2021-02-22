@@ -77,7 +77,7 @@
 
     {#each pokeList as pokemon}
         {#if alternativeList.includes(pokemon.number)}
-            <button on:click={() => answer(pokemon.number)} disabled={answered} class={pokemon.number === pokeNumber ? "right_answer" : ""}>
+            <button on:click={() => answer(pokemon.number)} disabled={answered} class={answered && pokemon.number === pokeNumber ? "right_answer" : ""}>
                 {pokemon.name}
             </button>
         {/if}
