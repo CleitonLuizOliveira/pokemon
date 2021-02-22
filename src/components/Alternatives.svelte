@@ -2,10 +2,10 @@
 
     export let pokeNumber;
     export let answer;
+    export let answered;
     export let pokeList;
 
     let alternativeList = [pokeNumber];  
-    let namedAlternatives = [];
 
     function SelectRandomNumber(forbiddenNumbers) {
         let tempNumber = Math.floor((Math.random() * 898) + 1);
@@ -23,9 +23,7 @@
         alternativeList.push(randomNumber);
     }
 
-    alternativeList.sort((a, b) => a -b);
-
-    
+    alternativeList.sort((a, b) => a -b);    
 
 </script>
 
@@ -51,13 +49,27 @@
         color: white;
     }
 
+    button:disabled {
+        background-color: tomato;
+        border: 2px solid tomato;
+        color: white;
+    }
+
+    .right_answer:disabled {
+        background-color: green;
+        border: 2px solid green;
+        color: white;
+    }
+
 </style>
 
 <div class="container">
 
     {#each pokeList as pokemon}
         {#if alternativeList.includes(pokemon.number)}
-            <button on:click={answer}>{pokemon.name}</button>
+            <button on:click={() => answer(pokemon.number)} disabled={answered} class={pokemon.number === pokeNumber ? "right_answer" : ""}>
+                {pokemon.name}
+            </button>
         {/if}
     {/each}
 
