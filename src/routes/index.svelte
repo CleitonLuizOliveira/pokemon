@@ -7,7 +7,7 @@
 	import GameInfo from '../components/GameInfo.svelte';
 	import GameOver from '../components/GameOver.svelte';
 
-	let lives = 0;
+	let lives = 3;
 	let score = 0;
 	let answered = false;
 	let rightAnswer = false;
@@ -45,8 +45,7 @@
 	function Replay() {
 		lives = 3;
 		score = 0;
-		answered = false;
-		rightAnswer = false;
+		NextQuestion();
 	}
 
 </script>
