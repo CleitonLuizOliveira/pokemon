@@ -7,7 +7,7 @@
 
 <style>
     img {
-        width: 384px;
+        width: 256px;
         image-rendering: optimizeSpeed;
         image-rendering: -moz-crisp-edges;          /* Firefox  */
         image-rendering: -o-crisp-edges;            /* Opera    */

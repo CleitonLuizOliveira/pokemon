@@ -6,12 +6,15 @@
 <style>
     h2 {
         margin: 30px auto;
-        font-weight: bold;
-        color: tomato;
+        font-weight: bold;        
     }
 
     .correct {
         color: green;
+    }
+
+    .wrong {
+        color: tomato;
     }
 </style>
 
@@ -19,6 +22,8 @@
     {#if rightAnswer}
         <h2 class="correct">Correct!</h2>
     {:else}
-        <h2>Wrong!</h2>
+        <h2 class="wrong">Wrong!</h2>
     {/if}
+{:else}   
+    <h2>Do you know?</h2>
 {/if}	

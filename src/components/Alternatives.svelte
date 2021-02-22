@@ -20,7 +20,7 @@
         alternativeList = [];
         alternativeList.push(firstElement);
 
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < 8; index++) {
             let randomNumber = SelectRandomNumber(alternativeList);
 
             alternativeList.push(randomNumber);
@@ -36,7 +36,11 @@
 <style>
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 360px;
+        place-content: center;
+        place-items: center;
     }
 
     button {
@@ -45,7 +49,7 @@
         background-color: white;
         padding: 8px 20px;
         border-radius: 20px;
-        margin: 2px auto;
+        margin: 4px;
         cursor: pointer;
     }
 

@@ -4,6 +4,7 @@
 	import ImageViewer from "../components/ImageViewer.svelte";	
 	import Alternatives from "../components/Alternatives.svelte";	
 	import Result from '../components/Result.svelte';
+	import GameInfo from '../components/GameInfo.svelte';
 
 	let lives = 3;
 	let score = 0;
@@ -27,8 +28,10 @@
 
 		if (number === pokeNumber) {
 			rightAnswer = true;
+			score = score + 1;
 		} else {
 			rightAnswer = false;
+			lives = lives -1;
 		}
 	}
 
@@ -75,6 +78,7 @@
 
 <main>
 	<h1>Who's That Pokémon?</h1>
+	<GameInfo {score} {lives} />
 	<ImageViewer {pokeNumber} {answered}  />
 	<Result {rightAnswer} {answered} />
 	<Alternatives {pokeNumber} {answer} {answered} {pokeList}/>
