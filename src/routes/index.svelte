@@ -1,12 +1,8 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import ImageViewer from "../components/ImageViewer.svelte";	
 	import Alternatives from "../components/Alternatives.svelte";	
-
-	export async function FetchPokemon() {
-        const response = await fetch('pokemon.json');
-        const responseJson = await response.json();
-        return responseJson.pokemon;
-    }
 
 	let answered = false;
 
@@ -18,7 +14,13 @@
 
 	let pokeNumber = SelectRandomNumber();
 
-	let pokeList = FetchPokemon();
+	let pokeList = [];
+
+	onMount(async () => {
+		const response = await fetch(`pokemon.json`);
+		const responseJson = await response.json();
+		pokeList =  responseJson.pokemon;
+	});
 
 </script>
 
@@ -40,5 +42,15 @@
 	<h1>Quem é este Pokémon?</h1>
 	<ImageViewer {pokeNumber} {answered} />
 	<Alternatives {pokeNumber} {answer} />
+
+	{#await pokeList}
+		<p>...waiting</p>
+	{:then pokemonList}
+		{#each pokemonList as pokemon}
+			<legend>#{pokemon.number} - {pokemon.name}</legend>
+		{/each}
+	{:catch error}
+		<p style="color: red">{error.message}</p>
+	{/await}
 </main>
 
