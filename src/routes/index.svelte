@@ -5,8 +5,9 @@
 	import Alternatives from "../components/Alternatives.svelte";	
 	import Result from '../components/Result.svelte';
 	import GameInfo from '../components/GameInfo.svelte';
+	import GameOver from '../components/GameOver.svelte';
 
-	let lives = 3;
+	let lives = 0;
 	let score = 0;
 	let answered = false;
 	let rightAnswer = false;
@@ -41,6 +42,13 @@
 		rightAnswer = false;
 	}
 
+	function Replay() {
+		lives = 3;
+		score = 0;
+		answered = false;
+		rightAnswer = false;
+	}
+
 </script>
 
 <svelte:head>
@@ -53,10 +61,6 @@
 		flex-direction: column;
 		place-content: center;
 		place-items: center;
-	}
-
-	h1 {
-		font-weight: bold;
 	}
 
 	button {
@@ -78,13 +82,17 @@
 
 
 <main>
-	<GameInfo {score} {lives} />
-	<ImageViewer {pokeNumber} {answered}  />
-	<Result {rightAnswer} {answered} />
-	<Alternatives {pokeNumber} {answer} {answered} {pokeList}/>
+	{#if lives > 0}
+		<GameInfo {score} {lives} />
+		<ImageViewer {pokeNumber} {answered}  />
+		<Result {rightAnswer} {answered} />
+		<Alternatives {pokeNumber} {answer} {answered} {pokeList}/>
 
-	{#if answered}
-		<button on:click={NextQuestion}>Next Pokémon</button>
+		{#if answered}
+			<button on:click={NextQuestion}>Next Pokémon</button>
+		{/if}
+	{:else}
+		<GameOver {Replay} />
 	{/if}
 	
 </main>
