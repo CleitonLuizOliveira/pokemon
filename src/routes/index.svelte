@@ -2,11 +2,15 @@
 	import ImageViewer from "../components/ImageViewer.svelte";	
 	import Alternatives from "../components/Alternatives.svelte";	
 
+	let answered = false;
+
 	const SelectRandomNumber = () => Math.floor(Math.random() * 899);
 
-	let pokeNumber = SelectRandomNumber();
+	function answer() {
+		answered = true;
+	}
 
-	console.log(pokeNumber);
+	let pokeNumber = SelectRandomNumber();
 </script>
 
 <svelte:head>
@@ -25,7 +29,7 @@
 
 <main>
 	<h1>Quem é este Pokémon?</h1>
-	<ImageViewer {pokeNumber} />
-	<Alternatives {pokeNumber} />
+	<ImageViewer {pokeNumber} {answered} />
+	<Alternatives {pokeNumber} {answer} />
 </main>
 

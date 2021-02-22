@@ -1,6 +1,7 @@
 <script>
 
     export let pokeNumber;
+    export let answered;
 
     async function FetchPokemonImage() {
 		const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNumber}/`);
@@ -35,11 +36,10 @@
         image-rendering: -o-crisp-edges;            /* Opera                          */
         image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
         image-rendering: pixelated; /* Chrome */
-        image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
     }
 
     .obscured {
-        filter: brightness(0)
+        filter: brightness(0);
     }
 </style>
 
@@ -47,7 +47,7 @@
     {#await promise}
 	<p>Aguarde...</p>
     {:then pokemon}
-        <img src={pokemon.sprites.front_default} alt="Quem é este Pokémon?" class="obscured">
+        <img src={pokemon.sprites.front_default} alt="Quem é este Pokémon?" class={answered ? '' : 'obscured'}>
     {:catch error}
         <p style="color: red">{error.message}</p>
     {/await}
