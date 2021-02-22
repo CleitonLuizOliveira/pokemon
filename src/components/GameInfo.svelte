@@ -17,11 +17,9 @@
 
 <div class="container">
     <div class="lives">
-        <legend>lives</legend>
-        <h2>{lives}</h2>
+        <legend>lives: {lives}</legend>
     </div>
     <div class="score">
-        <legend>score</legend>
-        <h2>{score}</h2>
+        <legend>score: {score}</legend>
     </div>
 </div>

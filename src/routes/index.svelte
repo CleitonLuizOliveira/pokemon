@@ -73,18 +73,18 @@
         background-color: black;
         color: white;
     }
+
 </style>
 
 
 <main>
-	<h1>Who's That Pokémon?</h1>
 	<GameInfo {score} {lives} />
 	<ImageViewer {pokeNumber} {answered}  />
 	<Result {rightAnswer} {answered} />
 	<Alternatives {pokeNumber} {answer} {answered} {pokeList}/>
 
 	{#if answered}
-		<button on:click={NextQuestion}>Next Question</button>
+		<button on:click={NextQuestion}>Next Pokémon</button>
 	{/if}
 	
 </main>

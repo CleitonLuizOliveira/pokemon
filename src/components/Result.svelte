@@ -25,5 +25,5 @@
         <h2 class="wrong">Wrong!</h2>
     {/if}
 {:else}   
-    <h2>Do you know?</h2>
+    <h2>Who's that Pokémon?</h2>
 {/if}	

@@ -7,12 +7,14 @@
 
 <style>
     img {
-        width: 256px;
+        width: 192px;
         image-rendering: optimizeSpeed;
         image-rendering: -moz-crisp-edges;          /* Firefox  */
         image-rendering: -o-crisp-edges;            /* Opera    */
         image-rendering: -webkit-optimize-contrast; /* Safari   */
         image-rendering: pixelated;                 /* Chrome   */
+        user-select: none;
+        pointer-events: none; 
     }
 
     .obscured {

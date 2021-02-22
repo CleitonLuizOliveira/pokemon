@@ -47,7 +47,7 @@
         text-transform: capitalize;
         border: 2px solid black;
         background-color: white;
-        padding: 8px 20px;
+        padding: 4px 20px;
         border-radius: 20px;
         margin: 4px;
         cursor: pointer;
