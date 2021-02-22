@@ -1,16 +1,17 @@
 <script>
     export let pokeNumber;
     export let answer;
+    export let pokeList;
 
     let alternativeList = [pokeNumber];  
     
     // const SelectRandomNumber = () => Math.floor(Math.random() * 899);
 
     function SelectRandomNumber(forbiddenNumbers) {
-        let tempNumber = Math.floor(Math.random() * 899);
+        let tempNumber = Math.floor((Math.random() * 898) + 1);
 
         while (forbiddenNumbers.includes(tempNumber)) {
-            tempNumber = Math.floor(Math.random() * 899);
+            tempNumber = Math.floor((Math.random() * 898) + 1);
         }
 
         return tempNumber;

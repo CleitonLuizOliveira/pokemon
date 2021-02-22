@@ -6,7 +6,7 @@
 
 	let answered = false;
 
-	const SelectRandomNumber = () => Math.floor(Math.random() * 899);
+	const SelectRandomNumber = () => Math.floor((Math.random() * 898) + 1);
 
 	function answer() {
 		answered = true;
@@ -15,6 +15,7 @@
 	let pokeNumber = SelectRandomNumber();
 
 	let pokeList = [];
+	// CUIDADO! O index de cada pokemon é um a menos que o número dele
 
 	onMount(async () => {
 		const response = await fetch(`pokemon.json`);
@@ -40,17 +41,7 @@
 
 <main>
 	<h1>Quem é este Pokémon?</h1>
-	<ImageViewer {pokeNumber} {answered} />
-	<Alternatives {pokeNumber} {answer} />
-
-	{#await pokeList}
-		<p>...waiting</p>
-	{:then pokemonList}
-		{#each pokemonList as pokemon}
-			<legend>#{pokemon.number} - {pokemon.name}</legend>
-		{/each}
-	{:catch error}
-		<p style="color: red">{error.message}</p>
-	{/await}
+	<ImageViewer {pokeNumber} {answered}  />
+	<Alternatives {pokeNumber} {answer} {pokeList}/>
 </main>
 
