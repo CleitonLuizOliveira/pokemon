@@ -5,6 +5,8 @@
 	import Alternatives from "../components/Alternatives.svelte";	
 	import Result from '../components/Result.svelte';
 
+	let lives = 3;
+	let score = 0;
 	let answered = false;
 	let rightAnswer = false;
 
@@ -30,6 +32,12 @@
 		}
 	}
 
+	function NextQuestion() {
+		pokeNumber = SelectRandomNumber();
+		answered = false;
+		rightAnswer = false;
+	}
+
 </script>
 
 <svelte:head>
@@ -47,6 +55,21 @@
 	h1 {
 		font-weight: bold;
 	}
+
+	button {
+		margin-top: 40px;
+        border: 2px solid black;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
+    }
 </style>
 
 
@@ -55,5 +78,10 @@
 	<ImageViewer {pokeNumber} {answered}  />
 	<Result {rightAnswer} {answered} />
 	<Alternatives {pokeNumber} {answer} {answered} {pokeList}/>
+
+	{#if answered}
+		<button on:click={NextQuestion}>Next Question</button>
+	{/if}
+	
 </main>
 

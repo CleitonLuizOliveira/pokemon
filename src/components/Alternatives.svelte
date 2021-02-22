@@ -1,11 +1,10 @@
 <script>
-
     export let pokeNumber;
     export let answer;
     export let answered;
     export let pokeList;
 
-    let alternativeList = [pokeNumber];  
+    let alternativeList = [];  
 
     function SelectRandomNumber(forbiddenNumbers) {
         let tempNumber = Math.floor((Math.random() * 898) + 1);
@@ -17,13 +16,20 @@
         return tempNumber;
     }
 
-    for (let index = 0; index < 3; index++) {
-        let randomNumber = SelectRandomNumber(alternativeList);
+    function FillList(firstElement) {
+        alternativeList = [];
+        alternativeList.push(firstElement);
 
-        alternativeList.push(randomNumber);
+        for (let index = 0; index < 3; index++) {
+            let randomNumber = SelectRandomNumber(alternativeList);
+
+            alternativeList.push(randomNumber);
+        }
+
+        alternativeList.sort((a, b) => a -b); 
     }
 
-    alternativeList.sort((a, b) => a -b);    
+    $: FillList(pokeNumber);
 
 </script>
 
@@ -72,6 +78,5 @@
             </button>
         {/if}
     {/each}
-
     
 </div>
