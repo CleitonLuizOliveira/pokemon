@@ -13,6 +13,10 @@
 	let answered = false;
 	let rightAnswer = false;
 
+	if (process.browser) {
+		highScore = localStorage.getItem('highScore') || 0;
+	}	
+
 	const SelectRandomNumber = () => Math.floor((Math.random() * 898) + 1);
 
 	let pokeNumber = SelectRandomNumber();
@@ -38,6 +42,9 @@
 
 		if (score > highScore) {
 			highScore = score;
+			if (process.browser) {
+				localStorage.setItem('highScore', highScore);
+			}			
 		}
 	}
 
