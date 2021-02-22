@@ -37,6 +37,18 @@
 
     button {
         text-transform: capitalize;
+        border: 2px solid black;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        margin: 2px auto;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border: 2px solid white;
+        background-color: black;
+        color: white;
     }
 
 </style>

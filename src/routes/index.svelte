@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>Quem é este Pokémon?</title>
+	<title>Who's That Pokémon?</title>
 </svelte:head>
 
 <style>
@@ -39,7 +39,7 @@
 
 
 <main>
-	<h1>Quem é este Pokémon?</h1>
+	<h1>Who's That Pokémon?</h1>
 	<ImageViewer {pokeNumber} {answered}  />
 	<Alternatives {pokeNumber} {answer} {pokeList}/>
 </main>
