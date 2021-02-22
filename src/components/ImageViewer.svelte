@@ -1,4 +1,5 @@
 <script>
+
     export let pokeNumber;
 
     async function FetchPokemonImage() {
@@ -45,10 +46,10 @@
 <main>
     {#await promise}
 	<p>Aguarde...</p>
-{:then pokemon}
-    <img src={pokemon.sprites.front_default} alt="Quem é este Pokémon?" class="obscured">
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}
+    {:then pokemon}
+        <img src={pokemon.sprites.front_default} alt="Quem é este Pokémon?" class="obscured">
+    {:catch error}
+        <p style="color: red">{error.message}</p>
+    {/await}
 </main>
 
