@@ -1,5 +1,9 @@
 <script>
     export let Replay;
+    export let score;
+    export let highScore;
+
+    
 </script>
 
 <style>
@@ -15,6 +19,7 @@
     }
 
     button {
+        margin-top: 30px;
         border: 2px solid black;
         background-color: white;
         padding: 8px 20px;
@@ -34,6 +39,8 @@
         game<br>
         over
     </h1>
+    <h2>Your score was {score}</h2>
+    <h2>Your personal best is {highScore}</h2>
     <button on:click={Replay}>
         Play Again
     </button>

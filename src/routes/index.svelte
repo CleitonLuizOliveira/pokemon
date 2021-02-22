@@ -9,6 +9,7 @@
 
 	let lives = 3;
 	let score = 0;
+	let highScore = 0;
 	let answered = false;
 	let rightAnswer = false;
 
@@ -33,6 +34,10 @@
 		} else {
 			rightAnswer = false;
 			lives = lives -1;
+		}
+
+		if (score > highScore) {
+			highScore = score;
 		}
 	}
 
@@ -91,7 +96,7 @@
 			<button on:click={NextQuestion}>Next Pokémon</button>
 		{/if}
 	{:else}
-		<GameOver {Replay} />
+		<GameOver {Replay} {highScore} {score} />
 	{/if}
 	
 </main>
