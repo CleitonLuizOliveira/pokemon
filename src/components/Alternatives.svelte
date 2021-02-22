@@ -57,7 +57,7 @@
 
     {#each pokeList as pokemon}
         {#if alternativeList.includes(pokemon.number)}
-            <button on:click={answer}>{pokemon.name.replace('-', ' ')}</button>
+            <button on:click={answer}>{pokemon.name}</button>
         {/if}
     {/each}
 
