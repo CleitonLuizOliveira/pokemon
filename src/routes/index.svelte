@@ -15,7 +15,6 @@
 	let pokeNumber = SelectRandomNumber();
 
 	let pokeList = [];
-	// CUIDADO! O index de cada pokemon é um a menos que o número dele
 
 	onMount(async () => {
 		const response = await fetch(`pokemon.json`);

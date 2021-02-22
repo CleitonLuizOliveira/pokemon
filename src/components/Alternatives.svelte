@@ -1,11 +1,11 @@
 <script>
+
     export let pokeNumber;
     export let answer;
     export let pokeList;
 
     let alternativeList = [pokeNumber];  
-    
-    // const SelectRandomNumber = () => Math.floor(Math.random() * 899);
+    let namedAlternatives = [];
 
     function SelectRandomNumber(forbiddenNumbers) {
         let tempNumber = Math.floor((Math.random() * 898) + 1);
@@ -25,6 +25,8 @@
 
     alternativeList.sort((a, b) => a -b);
 
+    
+
 </script>
 
 <style>
@@ -32,10 +34,20 @@
         display: flex;
         flex-direction: column;
     }
+
+    button {
+        text-transform: capitalize;
+    }
+
 </style>
 
 <div class="container">
-    {#each alternativeList as pokemon}
-        <button on:click={answer}>{pokemon}</button>
+
+    {#each pokeList as pokemon}
+        {#if alternativeList.includes(pokemon.number)}
+            <button on:click={answer}>{pokemon.name.replace('-', ' ')}</button>
+        {/if}
     {/each}
+
+    
 </div>
