@@ -11,6 +11,8 @@
 	}
 
 	let pokeNumber = SelectRandomNumber();
+
+	const pokelist = 
 </script>
 
 <svelte:head>
