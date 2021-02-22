@@ -19,6 +19,7 @@
     legend {
         padding: 0;
         margin: 0;
+        font-weight: bold;
     }
 
     h2 {
@@ -34,6 +35,7 @@
         width: 96px;
         background-position: top right;
         background-repeat: repeat;
+        margin-top: 4px;
     }
 
 
@@ -41,11 +43,11 @@
 
 <div class="container">
     <div class="lives">
-        <legend>lives: </legend>
+        <legend>lives </legend>
         <div style="background-image: url({pokeball}); width: {32 * lives}px" class="life-counter"></div>
     </div>
     <div class="score">
-        <legend>score:</legend>
+        <legend>score</legend>
         <h2>{score}</h2>
     </div>
     
