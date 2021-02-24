@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "who_pokemon",
+  "description": "Who's That Pokémon?",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
